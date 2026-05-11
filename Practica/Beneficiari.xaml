@@ -1,0 +1,53 @@
+﻿<Page x:Class="Practica.Beneficiari"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Practica"
+      mc:Ignorable="d"
+      Title="Beneficiari" Foreground="White">
+
+    <Grid HorizontalAlignment="Stretch">
+        <WrapPanel Margin="0,0,0,302">
+            <StackPanel x:Name="firstRect" Width="224" Height="160" Background="#FF1C1C1B">
+                <Label Content="Total beneficiari" FontSize="22" Padding="30 20" Foreground="#FFA7A7A7"/>
+                <Label x:Name="totalBeneficiari" Content="8" Height="46" FontSize="36" Padding="30 0" Foreground="White"/>
+            </StackPanel>
+            <Border Margin="30 0"  />
+            <StackPanel Width="224" Height="160" Background="#FF1C1C1B">
+                <Label Content="Urban" FontSize="22" Padding="30 20" Foreground="#FFA7A7A7"/>
+                <Label x:Name="totalUrban" Content="3" Height="46" FontSize="36" Padding="30 0" Foreground="#FF0019FF"/>
+                <Label x:Name="urbanPercent" Content="37.5% din total" Height="39" Padding="30 0" VerticalContentAlignment="Center" Foreground="#FFA7A7A7" FontSize="18"/>
+            </StackPanel>
+            <Border Margin="30 0"  />
+            <StackPanel Width="224" Height="160" Background="#FF1C1C1B">
+                <Label Content="Rural" FontSize="22" Padding="30 20" Foreground="#FFA7A7A7"/>
+                <Label x:Name="totalRural" Content="5" Height="47" FontSize="36" Padding="30 0" Foreground="#FF4BFF0A"/>
+                <Label x:Name="ruralPercent" Content="62.5% din total" Height="39" Padding="30 0" VerticalContentAlignment="Center" Foreground="#FFA7A7A7" FontSize="18"/>
+            </StackPanel>
+            <WrapPanel Width="322">
+                <Button Content="+ Adauga" Height="40" Width="133" Margin="10 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click"/>
+                <Button Content="- Sterge" Height="40" Width="133" Margin="30 0 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
+                <Button Content="Modifica" Height="40" Width="133" Margin="10 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
+                <Button Content="Exporteaza" Height="40" Width="133" Margin="40 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
+            </WrapPanel>
+        </WrapPanel>
+        <Border ClipToBounds="True" BorderBrush="#FF767575" CornerRadius="15"  BorderThickness="1" Margin="0,201,0,0" Background="#30302e" VerticalAlignment="Stretch">
+            <DataGrid x:Name="beneficiariTable" d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="0" HeadersVisibility="Column"  Background="Transparent" BorderBrush="{x:Null}" SelectionChanged="DataGrid_SelectionChanged" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" Foreground="#fff" RowBackground="#FF343434">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Height" Value="50" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Padding" Value="30 10"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+            </DataGrid>
+        </Border>
+
+    </Grid>
+</Page>

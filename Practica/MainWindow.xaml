@@ -1,0 +1,59 @@
+﻿<Window x:Class="Practica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practica"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        >
+    <Grid Background="#FF141414">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="131*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel LastChildFill="True" Grid.ColumnSpan="2">
+            <StackPanel Width="229" RenderTransformOrigin="0.5,0.5" Background="#FF1C1C1B" HorizontalAlignment="Left">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.387"/>
+                        <RotateTransform Angle="0.337"/>
+                        <TranslateTransform Y="0.002" X="-0.02"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <WrapPanel Height="66" Width="230">
+                    <StackPanel Width="160" >
+                        <Label Content="Beneficiari" FontSize="24" Foreground="White" FontWeight="SemiBold" Height="41"/>
+                        <Label Content="v 1.0" Height="25" Foreground="#FF9A9A9A" />
+                    </StackPanel>
+                </WrapPanel>
+                <Border BorderBrush="#FFD9D9D9" BorderThickness="1" Height="1" RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                </Border>
+                <WrapPanel Height="366">
+                    <Label Content="Pricinpal" Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32" Margin="0 20 0 5"/>
+                    <Button Content="Benefeciari" Height="29" Width="229" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand" Click="Button_Click"/>
+                    <Button Content="Localitati" Height="29" Width="229" Margin="0 10" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand" Click="Button_Click_1"/>
+                    <Label Content="Rapoarte
+                           " Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32"/>
+                    <Button Content="Raport contact" Height="29" Width="229" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand"/>
+                    <Button Content="Statistici" Height="29" Width="229" Margin="0 10" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand"/>
+                    <Label Content="Administrare" Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32"/>
+                    <Button Content="Exporteaza date" Height="29" Width="229" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand"/>
+                </WrapPanel>
+            </StackPanel>
+            <Frame x:Name="mainFrame" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Background="#FF232323" Foreground="White" NavigationUIVisibility="Hidden" VerticalContentAlignment="Center" Padding="30 20"/>
+        </DockPanel>
+
+    </Grid>
+</Window>

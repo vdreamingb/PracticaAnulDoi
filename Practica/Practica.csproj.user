@@ -5,10 +5,16 @@
     <Compile Update="Add.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddBeneficiari.xaml.cs">
+    <Compile Update="forms\ExportData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="forms\AddBeneficiari.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Beneficiari.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="forms\AddLocalitati.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="HomePage.xaml.cs">
@@ -18,6 +24,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LogInWindows.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RaportContact.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Statistici.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

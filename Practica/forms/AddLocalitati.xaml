@@ -1,0 +1,23 @@
+﻿<Page x:Class="Practica.forms.AddLocalitati"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Practica"
+      mc:Ignorable="d"
+      Title="Adauga Localitate" Width="322" Height="312">
+
+    <Grid>
+        <Label Content="Nume" HorizontalAlignment="Left" Margin="27,29,0,0" VerticalAlignment="Top" Width="111" Foreground="White"/>
+        <TextBox x:Name="txtNume" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270" Height="23"/>
+        <Label Content="Tip" HorizontalAlignment="Left" Margin="27,91,0,0" VerticalAlignment="Top" Width="85" Foreground="White"/>
+        <Label Content="Judet" HorizontalAlignment="Left" Margin="27,154,0,0" VerticalAlignment="Top" Width="85" Foreground="White"/>
+        <TextBox x:Name="txtJudet" HorizontalAlignment="Center" Margin="0,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270" Height="23"/>
+        <Button Content="+ Adauga" HorizontalAlignment="Center" Margin="0,232,0,0" VerticalAlignment="Top" Height="35" Width="269" Click="Button_Click"/>
+        <ComboBox x:Name="cmbTip" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="269" Height="30">
+            <ComboBoxItem Content="Urban"/>
+            <ComboBoxItem Content="Rural"/>
+        </ComboBox>
+
+    </Grid>
+</Page>

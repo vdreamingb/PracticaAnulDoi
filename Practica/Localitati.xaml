@@ -9,7 +9,7 @@
 
     <Grid>
         <Border ClipToBounds="True" BorderBrush="#FF767575" CornerRadius="15"  BorderThickness="1" Margin="0,134,0,0" Background="#30302e">
-            <DataGrid x:Name="localitatiTable" d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="0" HeadersVisibility="Column"  Background="Transparent" BorderBrush="{x:Null}" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" Foreground="#fff" RowBackground="#FF343434">
+            <DataGrid CanUserAddRows="False" x:Name="localitatiTable" d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="0" HeadersVisibility="Column"  Background="Transparent" BorderBrush="{x:Null}" HorizontalGridLinesBrush="{x:Null}" VerticalGridLinesBrush="{x:Null}" Foreground="#fff" RowBackground="#FF343434">
                 <DataGrid.RowStyle>
                     <Style TargetType="DataGridRow">
                         <Setter Property="Height" Value="50" />
@@ -25,10 +25,10 @@
             </DataGrid>
         </Border>
         <WrapPanel Margin="0,37,0,337">
-            <Button Content="+ Adauga" Height="39" Width="180" Margin="10 0 10 0" Background="{x:Null}" Foreground="White"/>
-            <Button Content="- Sterge" Height="39" Width="180" Margin="0" Background="{x:Null}" Foreground="White"/>
-            <Button Content="Modifica" Height="39" Width="180" Margin="10 0" Background="{x:Null}" Foreground="White"/>
-            <Button Content="Exporteaza" Height="39" Width="180" Margin="0 0 10 0" Background="{x:Null}" Foreground="White"/>
+            <Button Content="+ Adauga" Height="39" Width="180" Margin="10 0 10 0" Background="{x:Null}" Foreground="White" Click="Button_Click"/>
+            <Button Content="- Sterge" Height="39" Width="180" Margin="0" Background="{x:Null}" Foreground="White" Click="Button_Click_1"/>
+            <Button Content="Modifica" Height="39" Width="180" Margin="10 0" Background="{x:Null}" Foreground="White" Click="Button_Click_2"/>
+            <Button Content="Exporteaza" Height="39" Width="180" Margin="0 0 10 0" Background="{x:Null}" Foreground="White" Click="Button_Click_3"/>
         </WrapPanel>
 
     </Grid>

@@ -40,7 +40,7 @@ namespace Practica
             benefeiciar = new Beneficiar(nrBen, surname, name, phoneNumber, email, addres, codLoc);
             if (benefeiciar.IsEmpty())
             {
-                MessageBox.Show("Unele informatii nu sunt complete", "Introduceti datele");
+                System.Windows.MessageBox.Show("Unele informatii nu sunt complete", "Introduceti datele");
             }
             else
             {
@@ -64,12 +64,12 @@ namespace Practica
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Beneficiar adăugat cu succes!");
+                        System.Windows.MessageBox.Show("Beneficiar adăugat cu succes!");
                         form.Close();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Database Error: " + ex.Message);
+                        System.Windows.MessageBox.Show("Database Error: " + ex.Message);
                     }
                 }
             }

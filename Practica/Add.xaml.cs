@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica.forms;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -32,7 +33,7 @@ namespace Practica
                 addFrame.Navigate(new AddBeneficiari(this));
             }
             else{
-                addFrame.Navigate(new Localitati());
+                addFrame.Navigate(new AddLocalitati(this));
             }
         }
 

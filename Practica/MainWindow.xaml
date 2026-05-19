@@ -7,14 +7,53 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         WindowState="Maximized"
-        ResizeMode="NoResize"
-        >
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <!-- This target style replaces the template for ALL buttons in this window -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FFF9F1F1"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <!-- Use a Border component to handle the background switches -->
+                        <Border x:Name="btnBorder" 
+                                Background="{TemplateBinding Background}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <!-- 1. HOVER STATE EFFECT -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#FF2D2D2C"/>
+                            </Trigger>
+
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="btnBorder" Property="Background" Value="#FF3D3D3C"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Background="#FF141414">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="69*"/>
-            <ColumnDefinition Width="131*"/>
+            <ColumnDefinition Width="236*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="561*"/>
         </Grid.ColumnDefinitions>
-        <DockPanel LastChildFill="True" Grid.ColumnSpan="2">
+        <DockPanel LastChildFill="True" Grid.ColumnSpan="3">
             <StackPanel Width="229" RenderTransformOrigin="0.5,0.5" Background="#FF1C1C1B" HorizontalAlignment="Left">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
@@ -24,7 +63,7 @@
                         <TranslateTransform Y="0.002" X="-0.02"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <WrapPanel Height="66" Width="230">
+                <WrapPanel Height="66" Width="227">
                     <StackPanel Width="160" >
                         <Label Content="Beneficiari" FontSize="24" Foreground="White" FontWeight="SemiBold" Height="41"/>
                         <Label Content="v 1.0" Height="25" Foreground="#FF9A9A9A" />
@@ -42,18 +81,20 @@
                 </Border>
                 <WrapPanel Height="366">
                     <Label Content="Pricinpal" Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32" Margin="0 20 0 5"/>
-                    <Button Content="Benefeciari" Height="29" Width="229" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand" Click="Button_Click"/>
-                    <Button Content="Localitati" Height="29" Width="229" Margin="0 10" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand" Click="Button_Click_1"/>
-                    <Label Content="Rapoarte
-                           " Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32"/>
-                    <Button Content="Raport contact" Height="29" Width="229" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand"/>
-                    <Button Content="Statistici" Height="29" Width="229" Margin="0 10" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand"/>
+
+                    <!-- Cleaned up Buttons: removed local background/border/cursor settings -->
+                    <Button Content="Benefeciari" Height="29" Width="229" Click="Button_Click"/>
+                    <Button Content="Localitati" Height="29" Width="229" Margin="0 10" Click="Button_Click_1"/>
+
+                    <Label Content="Rapoarte" Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32"/>
+                    <Button Content="Raport contact" Height="29" Width="229" Click="Button_Click_2"/>
+                    <Button Content="Statistici" Height="29" Width="229" Margin="0 10" Click="Button_Click_3"/>
+
                     <Label Content="Administrare" Width="228" Foreground="#FF74736D" FontWeight="Bold" FontSize="16" Height="32"/>
-                    <Button Content="Exporteaza date" Height="29" Width="229" Background="{x:Null}" Foreground="#FFF9F1F1" BorderBrush="{x:Null}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Padding="10 0" Cursor="Hand"/>
+                    <Button Content="Exporteaza date" Height="29" Width="229" Click="Button_Click_4"/>
                 </WrapPanel>
             </StackPanel>
-            <Frame x:Name="mainFrame" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Background="#FF232323" Foreground="White" NavigationUIVisibility="Hidden" VerticalContentAlignment="Center" Padding="30 20"/>
+            <Frame x:Name="mainFrame" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Background="#FF232323" Foreground="White" NavigationUIVisibility="Hidden" VerticalContentAlignment="Center" Padding="30 20" RenderTransformOrigin="0.504,0.503"/>
         </DockPanel>
-
     </Grid>
 </Window>

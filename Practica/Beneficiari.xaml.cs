@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Practica.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -62,10 +63,49 @@ namespace Practica
         {
             Add win = new Add("Beneficiari");
             win.ShowDialog();
-            if(win == null)
+            if(!win.IsActive)
             {
                 populateTable();
+                setStatistics();
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(beneficiariTable.SelectedItem != null)
+            {
+                EditDataService delService = new EditDataService("Beneficiari", beneficiariTable);
+                delService.deleteData();
+                System.Windows.MessageBox.Show("Datele au fost sterse cu success", "Sters cu success");
+                populateTable();
+                setStatistics();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Nu puteti sa stergeti nimic atat timp cat nu ati selectat datele", "Nu ati selectat nici un rand");
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if(beneficiariTable.SelectedItem != null)
+            {
+                EditDataService service = new EditDataService("Beneficiari", beneficiariTable);
+                service.updateData();
+                System.Windows.MessageBox.Show("Datele au fost modificate cu success", "Modificat cu success");
+                populateTable();
+                setStatistics();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Nu puteti sa modificati nimic atat timp cat nu ati setat sau modificat datele", "Nu ati selectat nici un rand");
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ExportData exportData = new ExportData("Beneficiari", beneficiariTable);
+            exportData.ShowDialog();
         }
     }
 }

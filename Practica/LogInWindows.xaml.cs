@@ -38,7 +38,7 @@ namespace Practica
             }
             else
             {
-                MessageBox.Show("Parola sau nume de utilizator incorect");
+                System.Windows.MessageBox.Show("Parola sau nume de utilizator incorect");
             }
         }
       

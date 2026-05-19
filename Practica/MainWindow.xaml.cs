@@ -8,13 +8,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ModernWpf;
 
 namespace Practica
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow :Window
     {
         public MainWindow()
         {
@@ -43,6 +44,22 @@ namespace Practica
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(new Localitati());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new RaportContact());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(new Statistici());
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ExportData export = new ExportData("All");
+            export.ShowDialog();
         }
     }
 }

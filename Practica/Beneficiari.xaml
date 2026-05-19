@@ -27,9 +27,9 @@
             </StackPanel>
             <WrapPanel Width="322">
                 <Button Content="+ Adauga" Height="40" Width="133" Margin="10 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click"/>
-                <Button Content="- Sterge" Height="40" Width="133" Margin="30 0 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
-                <Button Content="Modifica" Height="40" Width="133" Margin="10 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
-                <Button Content="Exporteaza" Height="40" Width="133" Margin="40 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand"/>
+                <Button Content="- Sterge" Height="40" Width="133" Margin="30 0 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click_1"/>
+                <Button Content="Modifica" Height="40" Width="133" Margin="10 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click_2"/>
+                <Button Content="Exporteaza" Height="40" Width="133" Margin="40 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click_3"/>
             </WrapPanel>
         </WrapPanel>
         <Border ClipToBounds="True" BorderBrush="#FF767575" CornerRadius="15"  BorderThickness="1" Margin="0,201,0,0" Background="#30302e" VerticalAlignment="Stretch">

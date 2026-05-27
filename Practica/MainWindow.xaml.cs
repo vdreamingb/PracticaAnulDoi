@@ -22,18 +22,22 @@ namespace Practica
             InitializeComponent();
             auth();
         }
-    
+
 
         private void auth()
         {
             LogInWindows win = new LogInWindows();
-            win.ShowDialog();
-            while (win.IsActive)
-            {
-                this.Hide();
-            }
+            bool? result = win.ShowDialog();
 
-            mainFrame.Navigate(new HomePage());
+            if (win.isUser)
+            {
+                this.Activate();
+                mainFrame.Navigate(new HomePage());
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

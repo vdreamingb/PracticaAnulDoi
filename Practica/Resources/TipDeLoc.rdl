@@ -1,18 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
   <rd:ReportUnitType>Mm</rd:ReportUnitType>
   <rd:ReportID>0ad18260-d372-4b8b-8469-1317d2e336f8</rd:ReportID>
-  <am:AuthoringMetadata>
-    <am:CreatedBy>
-      <am:Name>MSRB</am:Name>
-      <am:Version>15.1.30001.02</am:Version>
-    </am:CreatedBy>
-    <am:UpdatedBy>
-      <am:Name>MSRB</am:Name>
-      <am:Version>15.1.30001.02</am:Version>
-    </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-05-18T05:07:30.1142318Z</am:LastModifiedTimestamp>
-  </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -30,50 +19,21 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <rd:DesignerState>
-          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
-            <SelectedColumns>
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="CodBen" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="NrBen" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="Nume" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="Prenume" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="Adresa" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="Telefon" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="Email" />
-              <ColumnExpression ColumnOwner="Beneficiari" ColumnName="CodLoc" />
-              <ColumnExpression ColumnOwner="Localitati" ColumnName="CodLoc" />
-              <ColumnExpression ColumnOwner="Localitati" ColumnName="NumeLoc" />
-              <ColumnExpression ColumnOwner="Localitati" ColumnName="Tip" />
-              <ColumnExpression ColumnOwner="Localitati" ColumnName="Judet" />
-            </SelectedColumns>
-            <Joins>
-              <Join Type="CROSS JOIN" ColumnOwner="Localitati" />
-              <Join Type="INNER JOIN" ColumnOwner="Beneficiari">
-                <On>
-                  <From ColumnOwner="Localitati" ColumnName="CodLoc" />
-                  <To ColumnOwner="Beneficiari" ColumnName="CodLoc" />
-                </On>
-              </Join>
-            </Joins>
-          </QueryDefinition>
-        </rd:DesignerState>
         <CommandText>SELECT
-  Beneficiari.CodBen
-  ,Beneficiari.NrBen
-  ,Beneficiari.Nume
-  ,Beneficiari.Prenume
-  ,Beneficiari.Adresa
-  ,Beneficiari.Telefon
-  ,Beneficiari.Email
-  ,Beneficiari.CodLoc AS [Beneficiari CodLoc]
-  ,Localitati.CodLoc AS [Localitati CodLoc]
-  ,Localitati.NumeLoc
-  ,Localitati.Tip
-  ,Localitati.Judet
-FROM
-  Localitati
-  INNER JOIN Beneficiari
-    ON Localitati.CodLoc = Beneficiari.CodLoc</CommandText>
+  b.CodBen,
+  b.NrBen,
+  b.Nume,
+  b.Prenume,
+  b.Adresa,
+  b.Telefon,
+  b.Email,
+  b.CodLoc AS [Beneficiari CodLoc],
+  l.CodLoc AS [Localitati CodLoc],
+  l.NumeLoc,
+  l.Tip,
+  l.Judet
+FROM Localitati l
+INNER JOIN Beneficiari b ON l.CodLoc = b.CodLoc</CommandText>
       </Query>
       <Fields>
         <Field Name="CodBen">
@@ -131,309 +91,20 @@ FROM
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix1">
-            <TablixBody>
-              <TablixColumns>
-                <TablixColumn>
-                  <Width>25mm</Width>
-                </TablixColumn>
-              </TablixColumns>
-              <TablixRows>
-                <TablixRow>
-                  <Height>6mm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox2">
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Localitati Cod Loc</Value>
-                                  <Style>
-                                    <FontSize>11pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>#666666</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <BackgroundColor>White</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>6mm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Localitati_CodLoc">
-                          <rd:DefaultName>Localitati_CodLoc</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Count(Fields!Localitati_CodLoc.Value)</Value>
-                                  <Style>
-                                    <FontWeight>Normal</FontWeight>
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BackgroundColor>White</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-                <TablixRow>
-                  <Height>6mm</Height>
-                  <TablixCells>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox6">
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Count(Fields!Localitati_CodLoc.Value)</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>#333333</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BackgroundColor>White</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                  </TablixCells>
-                </TablixRow>
-              </TablixRows>
-            </TablixBody>
-            <TablixColumnHierarchy>
-              <TablixMembers>
-                <TablixMember />
-              </TablixMembers>
-            </TablixColumnHierarchy>
-            <TablixRowHierarchy>
-              <TablixMembers>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>25mm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox3">
-                        <rd:DefaultName>Textbox3</rd:DefaultName>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Tip</Value>
-                                <Style>
-                                  <FontSize>11pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>#666666</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Right</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                            <Width>1pt</Width>
-                          </BottomBorder>
-                          <BackgroundColor>White</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Tip">
-                    <GroupExpressions>
-                      <GroupExpression>=Fields!Tip.Value</GroupExpression>
-                    </GroupExpressions>
-                  </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!Tip.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
-                  <TablixHeader>
-                    <Size>25mm</Size>
-                    <CellContents>
-                      <Textbox Name="Tip">
-                        <rd:DefaultName>Tip</rd:DefaultName>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Tip.Value</Value>
-                                <Style>
-                                  <FontWeight>Normal</FontWeight>
-                                  <Color>#333333</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                          </Border>
-                          <BottomBorder>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                            <Width>1pt</Width>
-                          </BottomBorder>
-                          <BackgroundColor>White</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>25mm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox5">
-                        <rd:DefaultName>Textbox5</rd:DefaultName>
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Итог</Value>
-                                <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                  <Color>#333333</Color>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <Style>
-                          <Border>
-                            <Style>None</Style>
-                          </Border>
-                          <BackgroundColor>White</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <KeepWithGroup>Before</KeepWithGroup>
-                </TablixMember>
-              </TablixMembers>
-            </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
-            <Top>12.7mm</Top>
-            <Left>0mm</Left>
-            <Height>18mm</Height>
-            <Width>50mm</Width>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Tablix>
+
+          <!-- Title -->
           <Textbox Name="ReportTitle">
-            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
-            <rd:DefaultName>ReportTitle</rd:DefaultName>
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value />
+                    <Value>Localitati dupa Tip</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
-                      <FontSize>28pt</FontSize>
+                      <FontSize>24pt</FontSize>
+                      <Color>#336699</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -441,28 +112,320 @@ FROM
               </Paragraph>
             </Paragraphs>
             <Top>0mm</Top>
+            <Left>0mm</Left>
             <Height>12.7mm</Height>
-            <Width>139.7mm</Width>
-            <ZIndex>1</ZIndex>
+            <Width>170mm</Width>
             <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
+              <Border><Style>None</Style></Border>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+
+          <!-- Summary Table -->
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn><Width>50mm</Width></TablixColumn>
+                <TablixColumn><Width>40mm</Width></TablixColumn>
+                <TablixColumn><Width>40mm</Width></TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+
+                <!-- Column Headers -->
+                <TablixRow>
+                  <Height>8mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HeaderTip">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>Tip Localitate</Value>
+                            <Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                          </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BackgroundColor>#336699</BackgroundColor>
+                            <PaddingLeft>5pt</PaddingLeft><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HeaderNrLoc">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>Nr. Localitati</Value>
+                            <Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                          </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BackgroundColor>#336699</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HeaderNrBen">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>Nr. Beneficiari</Value>
+                            <Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                          </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BackgroundColor>#336699</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+
+                <!-- Data Row -->
+                <TablixRow>
+                  <Height>7mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TipValue">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>=Fields!Tip.Value</Value>
+                            <Style><FontWeight>Bold</FontWeight><Color>#333333</Color></Style>
+                          </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BottomBorder><Color>LightGrey</Color><Style>Solid</Style><Width>1pt</Width></BottomBorder>
+                            <BackgroundColor>#f0f5fa</BackgroundColor>
+                            <PaddingLeft>5pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="NrLocValue">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>=CountDistinct(Fields!Localitati_CodLoc.Value)</Value>
+                            <Style><FontWeight>Bold</FontWeight><Color>#336699</Color></Style>
+                          </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BottomBorder><Color>LightGrey</Color><Style>Solid</Style><Width>1pt</Width></BottomBorder>
+                            <BackgroundColor>#f0f5fa</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="NrBenValue">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>=Count(Fields!CodBen.Value)</Value>
+                            <Style><FontWeight>Bold</FontWeight><Color>#336699</Color></Style>
+                          </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BottomBorder><Color>LightGrey</Color><Style>Solid</Style><Width>1pt</Width></BottomBorder>
+                            <BackgroundColor>#f0f5fa</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+
+                <!-- Total Row -->
+                <TablixRow>
+                  <Height>8mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalLabel">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>TOTAL</Value>
+                            <Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                          </TextRun></TextRuns><Style /></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BackgroundColor>#336699</BackgroundColor>
+                            <PaddingLeft>5pt</PaddingLeft><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalNrLoc">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>=CountDistinct(Fields!Localitati_CodLoc.Value)</Value>
+                            <Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                          </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BackgroundColor>#336699</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="TotalNrBen">
+                          <CanGrow>true</CanGrow>
+                          <Paragraphs><Paragraph><TextRuns><TextRun>
+                            <Value>=Count(Fields!CodBen.Value)</Value>
+                            <Style><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                          </TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
+                          <Style>
+                            <Border><Style>None</Style></Border>
+                            <BackgroundColor>#336699</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember>
+                  <Group Name="Tip">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!Tip.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression><Value>=Fields!Tip.Value</Value></SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember />
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>14mm</Top>
+            <Left>0mm</Left>
+            <Height>31mm</Height>
+            <Width>130mm</Width>
+            <Style><Border><Style>None</Style></Border></Style>
+          </Tablix>
+
+          <!-- Chart: Nr Localitati per Tip -->
+          <Chart Name="Chart1">
+            <ChartTitle>
+              <Caption>Nr. Localitati per Tip</Caption>
+              <Style>
+                <FontSize>12pt</FontSize>
+                <FontWeight>Bold</FontWeight>
+                <Color>#336699</Color>
+              </Style>
+            </ChartTitle>
+            <ChartLegend Name="Legend1">
+              <Hidden>true</Hidden>
+            </ChartLegend>
+            <ChartAreas>
+              <ChartArea Name="Default">
+                <ChartCategoryAxes>
+                  <ChartAxis Name="xAxis">
+                    <Style><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight></Style>
+                  </ChartAxis>
+                </ChartCategoryAxes>
+                <ChartValueAxes>
+                  <ChartAxis Name="yAxis">
+                    <Style><FontSize>9pt</FontSize></Style>
+                    <Minimum>0</Minimum>
+                  </ChartAxis>
+                </ChartValueAxes>
+              </ChartArea>
+            </ChartAreas>
+            <ChartSeriesCollection>
+              <ChartSeries Name="Series1">
+                <ChartDataPoints>
+                  <ChartDataPoint>
+                    <ChartDataPointValues>
+                      <Y>=CountDistinct(Fields!Localitati_CodLoc.Value)</Y>
+                    </ChartDataPointValues>
+                    <ChartDataLabel>
+                      <Visible>true</Visible>
+                      <Style><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight><Color>#ffffff</Color></Style>
+                    </ChartDataLabel>
+                    <Style>
+                      <BackgroundColor>=IIF(Fields!Tip.Value="Urban","#336699","#4CAF50")</BackgroundColor>
+                    </Style>
+                  </ChartDataPoint>
+                </ChartDataPoints>
+                <ChartCategoryGroupings>
+                  <ChartCategoryGrouping>
+                    <DynamicMemberGroups>
+                      <ChartMemberGroup>
+                        <Label>=Fields!Tip.Value</Label>
+                        <Grouping Name="TipGroup">
+                          <GroupExpressions>
+                            <GroupExpression>=Fields!Tip.Value</GroupExpression>
+                          </GroupExpressions>
+                        </Grouping>
+                        <SortExpressions>
+                          <SortExpression><Value>=Fields!Tip.Value</Value></SortExpression>
+                        </SortExpressions>
+                      </ChartMemberGroup>
+                    </DynamicMemberGroups>
+                  </ChartCategoryGrouping>
+                </ChartCategoryGroupings>
+                <ChartSeriesGroupings>
+                  <ChartSeriesGrouping>
+                    <StaticMemberGroups>
+                      <ChartMemberGroup>
+                        <Label>Nr. Localitati</Label>
+                      </ChartMemberGroup>
+                    </StaticMemberGroups>
+                  </ChartSeriesGrouping>
+                </ChartSeriesGroupings>
+                <Type>Column</Type>
+                <ChartArea>Default</ChartArea>
+                <Legend>Legend1</Legend>
+              </ChartSeries>
+            </ChartSeriesCollection>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>50mm</Top>
+            <Left>0mm</Left>
+            <Height>80mm</Height>
+            <Width>130mm</Width>
+            <Style><Border><Style>None</Style></Border></Style>
+          </Chart>
+
         </ReportItems>
-        <Height>57.15mm</Height>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
+        <Height>140mm</Height>
+        <Style><Border><Style>None</Style></Border></Style>
       </Body>
-      <Width>152.4mm</Width>
+      <Width>170mm</Width>
       <Page>
         <PageFooter>
           <Height>11.43mm</Height>
@@ -470,7 +433,6 @@ FROM
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Textbox Name="ExecutionTime">
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -481,9 +443,7 @@ FROM
                       <Style />
                     </TextRun>
                   </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
+                  <Style><TextAlign>Right</TextAlign></Style>
                 </Paragraph>
               </Paragraphs>
               <Top>5.08mm</Top>
@@ -491,21 +451,13 @@ FROM
               <Height>6.35mm</Height>
               <Width>50.8mm</Width>
               <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
+                <Border><Style>None</Style></Border>
+                <PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop><PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
           </ReportItems>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
+          <Style><Border><Style>None</Style></Border></Style>
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
@@ -518,10 +470,4 @@ FROM
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
 </Report>

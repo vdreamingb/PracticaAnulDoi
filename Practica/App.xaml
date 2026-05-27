@@ -4,8 +4,6 @@
              xmlns:local="clr-namespace:Practica"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-        <!-- Moving the style here makes it GLOBAL across your whole project -->
         <Style TargetType="Button">
             <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="#FF141414"/>

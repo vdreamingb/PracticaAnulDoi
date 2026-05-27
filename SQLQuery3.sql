@@ -1,0 +1,7 @@
+
+CREATE LOGIN DBadmin WITH PASSWORD = '1234';
+
+USE Beneficiari;
+CREATE USER myAppUser FOR LOGIN DBadmin;
+
+GRANT SELECT, INSERT, UPDATE, Delete ON SCHEMA::dbo TO myAppUser;

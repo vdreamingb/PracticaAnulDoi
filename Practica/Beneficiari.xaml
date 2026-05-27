@@ -25,11 +25,17 @@
                 <Label x:Name="totalRural" Content="5" Height="47" FontSize="36" Padding="30 0" Foreground="#FF4BFF0A"/>
                 <Label x:Name="ruralPercent" Content="62.5% din total" Height="39" Padding="30 0" VerticalContentAlignment="Center" Foreground="#FFA7A7A7" FontSize="18"/>
             </StackPanel>
-            <WrapPanel Width="322">
+            <WrapPanel Width="442">
                 <Button Content="+ Adauga" Height="40" Width="133" Margin="10 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click"/>
                 <Button Content="- Sterge" Height="40" Width="133" Margin="30 0 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click_1"/>
                 <Button Content="Modifica" Height="40" Width="133" Margin="10 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click_2"/>
                 <Button Content="Exporteaza" Height="40" Width="133" Margin="40 10 0 0" Background="{x:Null}" Foreground="White" Cursor="Hand" Click="Button_Click_3"/>
+                <Button Content="Date Rural" Height="40" Width="133" Margin="10 10 0 0" 
+        Background="{x:Null}" Foreground="White" Cursor="Hand" 
+        Click="DateRural_Click"/>
+                <Button Content="Date Urban" Height="40" Width="133" Margin="40 10 0 0" 
+        Background="{x:Null}" Foreground="White" Cursor="Hand" 
+        Click="DateUrban_Click"/>
             </WrapPanel>
         </WrapPanel>
         <Border ClipToBounds="True" BorderBrush="#FF767575" CornerRadius="15"  BorderThickness="1" Margin="0,201,0,0" Background="#30302e" VerticalAlignment="Stretch">

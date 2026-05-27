@@ -5,6 +5,9 @@
     <Compile Update="Add.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Beneficiari localitati.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="forms\ExportData.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

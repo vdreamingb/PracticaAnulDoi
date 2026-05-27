@@ -27,7 +27,7 @@
             </Label.RenderTransform>
         </Label>
         <TextBox x:Name="emailTextBox" HorizontalAlignment="Center" Margin="0,324,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270" Height="23"/>
-        <Label Content="Cod Locuitor" HorizontalAlignment="Left" Margin="27,368,0,0" VerticalAlignment="Top" Width="111" Foreground="White"/>
+        <Label Content="Cod Localitate" HorizontalAlignment="Left" Margin="27,368,0,0" VerticalAlignment="Top" Width="111" Foreground="White"/>
         <TextBox x:Name="codLocTextBox" HorizontalAlignment="Center" Margin="0,394,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270" Height="23"/>
         <Button Content="+ Adauga" HorizontalAlignment="Center" Margin="0,503,0,0" VerticalAlignment="Top" Height="35" Width="269" Click="Button_Click"/>
         <Label Content="Telefon" HorizontalAlignment="Left" Margin="29,435,0,0" VerticalAlignment="Top" Width="111" Foreground="White"/>

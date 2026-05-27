@@ -30,32 +30,33 @@ namespace Practica.forms
         {
             try
             {
-                DataBase db = new DataBase();
-
                 string nume = txtNume.Text.Trim();
                 string tip = (cmbTip.SelectedItem as ComboBoxItem)?.Content.ToString();
                 string judet = txtJudet.Text.Trim();
 
-                if (string.IsNullOrEmpty(nume) || tip == null || string.IsNullOrEmpty(judet))
+                if (string.IsNullOrEmpty(nume) || string.IsNullOrEmpty(tip) || string.IsNullOrEmpty(judet))
                 {
-                    System.Windows.MessageBox.Show("Completeaza toate campurile.");
+                    System.Windows.MessageBox.Show("Toate câmpurile sunt obligatorii.", "Eroare Validare");
                     return;
                 }
+
+                DataBase db = new DataBase();
                 using var con = db.GetConnection();
                 con.Open();
+
                 var cmd = new SqlCommand("INSERT INTO Localitati (NumeLoc, Tip, Judet) VALUES (@nume, @tip, @judet)", con);
                 cmd.Parameters.AddWithValue("@nume", nume);
                 cmd.Parameters.AddWithValue("@tip", tip);
                 cmd.Parameters.AddWithValue("@judet", judet);
                 cmd.ExecuteNonQuery();
 
-                System.Windows.MessageBox.Show("Localitatea a fost adaugata!");
+                System.Windows.MessageBox.Show("Localitatea a fost adăugată cu succes!", "Succes");
                 win.Close();
             }
-            catch (Exception ex) {
-                System.Windows.MessageBox.Show("A aparut o erroar" + ex.Message, "Erroare");
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show("A apărut o eroare: " + ex.Message, "Eroare Bază de Date");
             }
-            
         }
     }
 }

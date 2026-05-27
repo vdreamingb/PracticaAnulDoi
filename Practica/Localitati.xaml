@@ -24,11 +24,12 @@
                 </DataGrid.ColumnHeaderStyle>
             </DataGrid>
         </Border>
-        <WrapPanel Margin="0,37,0,337">
+        <WrapPanel Margin="-10,10,10,364">
             <Button Content="+ Adauga" Height="39" Width="180" Margin="10 0 10 0" Background="{x:Null}" Foreground="White" Click="Button_Click"/>
             <Button Content="- Sterge" Height="39" Width="180" Margin="0" Background="{x:Null}" Foreground="White" Click="Button_Click_1"/>
             <Button Content="Modifica" Height="39" Width="180" Margin="10 0" Background="{x:Null}" Foreground="White" Click="Button_Click_2"/>
             <Button Content="Exporteaza" Height="39" Width="180" Margin="0 0 10 0" Background="{x:Null}" Foreground="White" Click="Button_Click_3"/>
+            <Button Content="Afiseaza beneficiarii" Height="39" Width="180" Background="{x:Null}" Foreground="White" Click="AfiseazaBeneficiarii_Click"/>
         </WrapPanel>
 
     </Grid>

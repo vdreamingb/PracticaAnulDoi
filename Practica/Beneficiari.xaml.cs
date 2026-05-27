@@ -107,5 +107,17 @@ namespace Practica
             ExportData exportData = new ExportData("Beneficiari", beneficiariTable);
             exportData.ShowDialog();
         }
+
+        private void DateRural_Click(object sender, RoutedEventArgs e)
+        {
+            DateSelectateAleBeneficiarilor win = new DateSelectateAleBeneficiarilor("Rural");
+            win.ShowDialog();
+        }
+
+        private void DateUrban_Click(object sender, RoutedEventArgs e)
+        {
+            DateSelectateAleBeneficiarilor win = new DateSelectateAleBeneficiarilor("Urban");
+            win.ShowDialog();
+        }
     }
 }

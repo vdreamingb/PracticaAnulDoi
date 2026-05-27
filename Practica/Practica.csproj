@@ -34,4 +34,10 @@
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="DateSelectateAleBeneficiarilor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -81,5 +81,20 @@ namespace Practica
             ExportData exportData = new ExportData("Localitati",localitatiTable);
             exportData.ShowDialog();
         }
+
+        private void AfiseazaBeneficiarii_Click(object sender, RoutedEventArgs e)
+        {
+            if (localitatiTable.SelectedItem is DataRowView selectedRow)
+            {
+                int codLoc = Convert.ToInt32(selectedRow["CodLoc"]);
+                Beneficiari_localitati win = new Beneficiari_localitati(codLoc);
+                win.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selectați o localitate din listă.",
+                    "Nicio selecție", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }
